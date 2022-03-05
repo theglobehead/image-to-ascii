@@ -21,6 +21,6 @@ class ImageConverter:
 
         return result
 
-print(ImageConverter.generate_ascii(Image.open(urlopen("https://tinypng.com/images/social/website.jpg")),
-    (70, 40)
-))
+#print(ImageConverter.generate_ascii(Image.open(urlopen("https://tinypng.com/images/social/website.jpg")),
+#    (70, 40)
+#))
