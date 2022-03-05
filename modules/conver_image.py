@@ -4,7 +4,8 @@ from PIL import Image
 
 class ImageConverter:
     #symbols = [" ","`","'",":",";",'"',"*","^","+","#","@"]
-    symbols = [".", ",", ":", ";", "+", "=", "x", "X", "$", "&"]
+    symbols = [".", ",", ":", "+", ";", "=", "x", "X", "%", "$", "&", "¶", "@"]
+    symbols.reverse()
 
     @classmethod
     def generate_ascii(cls, image: Image, size: tuple):
@@ -17,7 +18,8 @@ class ImageConverter:
 
         for line_n in range(height):
             for col_n in range(width):
-                result += cls.symbols[ceil((px[col_n, line_n] / 255)*len(cls.symbols)) * (-1)]*2
+                print(ceil((px[col_n, line_n] / 255)*len(cls.symbols)))
+                result += cls.symbols[ceil((px[col_n, line_n] / 255)*(len(cls.symbols)-1))]*2
             result += "\n"
 
         return result
