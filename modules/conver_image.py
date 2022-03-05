@@ -3,7 +3,8 @@ from urllib.request import urlopen
 from PIL import Image
 
 class ImageConverter:
-    symbols = [" ","`","'",'"',"*","^","+","#","@"]
+    #symbols = [" ","`","'",":",";",'"',"*","^","+","#","@"]
+    symbols = [".", ",", ":", ";", "+", "=", "x", "X", "$", "&"]
 
     @classmethod
     def generate_ascii(cls, image: Image, size: tuple):
@@ -16,7 +17,7 @@ class ImageConverter:
 
         for line_n in range(height):
             for col_n in range(width):
-                result += cls.symbols[ceil((px[col_n, line_n] / 255)*len(cls.symbols)) - 1]*2
+                result += cls.symbols[ceil((px[col_n, line_n] / 255)*len(cls.symbols)) * (-1)]*2
             result += "\n"
 
         return result

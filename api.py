@@ -17,4 +17,5 @@ def generate_ascii(url: str, width: int, height: int):
 def draw_ascii(url: str, width: int, height: int):
     img = get_image_from_url(url)
     res = ImageConverter.generate_ascii(img, (width, height))
-    return f"<h1>{res}</h1>"
+    print(res)
+    return f"<pre>{res}</pre>"
