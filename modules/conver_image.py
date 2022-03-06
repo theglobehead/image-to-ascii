@@ -3,8 +3,8 @@ from urllib.request import urlopen
 from PIL import Image
 
 class ImageConverter:
-    #symbols = [" ","`","'",":",";",'"',"*","^","+","#","@"]
-    symbols = [".", ",", ":", "+", ";", "=", "x", "X", "%", "$", "&", "¶", "@"]
+    #symbols = [" ","`","'",":",";",'"',"*","^","+","#","@"]    
+    symbols = [".", ",", ":", "+", ";", "=", "x", "X", "Æ", "%", "$", "&", "¶", "@"]
     symbols.reverse()
 
     @classmethod
@@ -18,7 +18,6 @@ class ImageConverter:
 
         for line_n in range(height):
             for col_n in range(width):
-                print(ceil((px[col_n, line_n] / 255)*len(cls.symbols)))
                 result += cls.symbols[ceil((px[col_n, line_n] / 255)*(len(cls.symbols)-1))]*2
             result += "\n"
 
