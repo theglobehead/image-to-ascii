@@ -10,7 +10,9 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:8080",
-    "https://shrouded-lake-21821.herokuapp.com/"
+    "https://shrouded-lake-21821.herokuapp.com/",
+    "http://127.0.0.1:5500/test-api.html",
+    "http://127.0.0.1:5500"
 ]
 
 app.add_middleware(
