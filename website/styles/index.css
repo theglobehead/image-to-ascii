@@ -1,0 +1,73 @@
+body{
+    background-color: rgb(46, 46, 46);
+    color: white;
+}
+
+main{
+    width: 70%;
+    margin: 5vh auto 5vh auto;
+}
+
+.inputs{
+    display: grid;
+    grid-template-columns: 15% 15% auto 10%;
+    gap: 3%;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+
+.input-group{
+    margin: 0 !important; 
+}
+
+.dimension-input{
+    width: 100%;
+}
+
+#image-box{
+    width: 100%; 
+    padding: 10px;
+    background-color: rgb(236, 236, 236);
+    border: 2px solid rgb(77, 77, 77);
+    border-radius: 4%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: black;
+    font-family: monospace; 
+    letter-spacing: 0px; 
+    line-height: normal;
+}
+
+#image-box pre{
+    margin: 0;
+}
+
+.nav{
+    background-color: rgb(32, 32, 32);
+}
+
+.nav-link{
+    color: white;
+}
+
+.nav-link:hover{
+    color: rgb(182, 182, 182);
+}
+
+@media screen and (max-width: 150vh){
+    #height-input {grid-area: height;}
+    #width-input {grid-area: width;}
+    .url-input {grid-area: url;}
+    .btn-secondary {grid-area: button;}
+
+    .inputs{
+        display: grid;
+        grid-template-areas: 'width width width height height height'
+                            'url url url url url button';
+        gap: 3%;
+        align-items: center;
+    }    
+}

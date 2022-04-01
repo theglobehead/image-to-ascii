@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from modules.get_image import get_image_from_url
@@ -23,7 +23,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/generate")
+@app.get("/generate", response_class=PlainTextResponse)
 def generate_ascii(url: str, width: int, height: int):
     img = get_image_from_url(url)
     res = ImageConverter.generate_ascii(img, (width, height))
