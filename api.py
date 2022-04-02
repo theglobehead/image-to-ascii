@@ -1,11 +1,13 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, PlainTextResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.templating import Jinja2Templates
 
 from modules.get_image import get_image_from_url
 from modules.conver_image import ImageConverter
 
 app = FastAPI()
+templates = Jinja2Templates(directory="static")
 
 origins = [
     "http://localhost",
@@ -22,6 +24,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/", response_class=HTMLResponse)
+def home_page(request: Request):
+    return templates.TemplateResponse("/html/index.html", {"request": request})
 
 @app.get("/generate", response_class=PlainTextResponse)
 def generate_ascii(url: str, width: int, height: int):
