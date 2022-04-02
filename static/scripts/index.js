@@ -6,7 +6,7 @@ function getAscii(){
     console.log(width)
     console.log(height)
 
-    let url = `http://localhost:8000/generate?width=${ width }&height=${ height }&url=${ imageUrl }`
+    let url = `https://shrouded-lake-21821.herokuapp.com//generate?width=${ width }&height=${ height }&url=${ imageUrl }`
     let response = fetch(url);
 
     fetch(url)
