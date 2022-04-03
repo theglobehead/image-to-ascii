@@ -1,5 +1,4 @@
 from math import ceil
-from urllib.request import urlopen
 from PIL import Image
 
 class ImageConverter:

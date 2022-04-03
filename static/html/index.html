@@ -18,8 +18,8 @@
         
         .inputs{
             display: grid;
-            grid-template-columns: 15% 15% auto 10%;
-            gap: 3%;
+            grid-template-columns: 14% 14% auto 12%;
+            gap: 2%;
             align-items: center;
             margin-bottom: 5vh;
         }
@@ -64,18 +64,16 @@
         .nav-link:hover{
             color: rgb(182, 182, 182);
         }
+
+        .nav-link:focus{
+            color: rgb(143, 143, 143);
+        }
         
-        @media screen and (max-width: 150vh){
-            #height-input {grid-area: height;}
-            #width-input {grid-area: width;}
-            .url-input {grid-area: url;}
-            .btn-secondary {grid-area: button;}
-        
+        @media screen and (max-width: 130vh){    
             .inputs{
                 display: grid;
-                grid-template-areas: 'width width width height height height'
-                                    'url url url url url button';
-                gap: 3%;
+                grid-template-columns: auto;
+                gap: 2vh;
                 align-items: center;
             }    
         }
@@ -85,8 +83,8 @@
 <body>
     <nav class="nav">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Docs</a>
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="/docs">Docs</a>
+        <a class="nav-link" href="https://github.com/theglobehead/image-to-ascii">GitHub</a>
     </nav>
     <main>
         <div class="inputs">
@@ -104,18 +102,18 @@
             </div>
             <button type="button" class="btn btn-secondary" onclick="getAscii()">Generate</button>
         </div>
-        <div id="image-box"><h4>Click on the "Generate" button to see the results</h4></div>
+        <div id="image-box"><h4> Click on the "Generate" button to see the results</h4></div>
     </main>
     <script>
     function getAscii(){
         let imageUrl = document.getElementById("url-input").value
         let width = document.getElementById("width-input").value
         let height = document.getElementById("height-input").value
-    
+
         console.log(width)
         console.log(height)
     
-        let url = `https://shrouded-lake-21821.herokuapp.com/generate?width=${ width }&height=${ height }&url=${ imageUrl }`
+        let url = `/generate?width=${ width }&height=${ height }&url=${ imageUrl }`
         let response = fetch(url);
     
         fetch(url)
@@ -125,7 +123,7 @@
             ))
         .then(data => console.log(data))
         .catch(error => {
-            // handle the error
+            document.getElementById("image-box").innerHTML = "<h1>an error accured</h1>"
         });
     }
 </script>
