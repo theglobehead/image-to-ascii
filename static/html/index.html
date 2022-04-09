@@ -112,8 +112,10 @@
 
         console.log(width)
         console.log(height)
+
+        document.getElementById("image-box").innerHTML = "<img style='width: 40%; margin: 0 auto 0 auto;' alt='loading...' src='https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif'/>"
     
-        let url = `/generate?width=${ width }&height=${ height }&url=${ imageUrl }`
+        let url = `/generate?width=${ width }&height=${ height }&url=${ encodeURIComponent(imageUrl) }`
         let response = fetch(url);
     
         fetch(url)
